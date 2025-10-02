@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* JUBAM Design System - Bamboo-inspired premium cosmetics brand
+All colors MUST be HSL. Typography: DM Serif Display (headings), Montserrat (body)
+*/
+
+@layer base {
+  :root {
+    /* JUBAM Brand Colors */
+    --bamboo-light: 85 31% 92%;      /* #E6F0DF */
+    --sage-medium: 120 8% 45%;       /* #6A786A */
+    --forest-deep: 120 18% 22%;      /* #2D412D */
+    --warm-white: 30 12% 90%;        /* #E8E5E3 */
+    --warm-beige: 30 18% 71%;        /* #C3BAAE */
+    --charcoal-deep: 45 26% 10%;     /* #1C1915 */
+    
+    /* Semantic Design System */
+    --background: var(--warm-white);
+    --background-alt: var(--charcoal-deep);
+    --foreground: var(--charcoal-deep);
+    --foreground-alt: var(--warm-white);
+
+    --card: var(--warm-white);
+    --card-foreground: var(--charcoal-deep);
+
+    --popover: var(--warm-white);
+    --popover-foreground: var(--charcoal-deep);
+
+    --primary: var(--forest-deep);
+    --primary-foreground: var(--warm-white);
+    --primary-glow: var(--sage-medium);
+
+    --secondary: var(--bamboo-light);
+    --secondary-foreground: var(--forest-deep);
+
+    --muted: var(--warm-beige);
+    --muted-foreground: var(--sage-medium);
+
+    --accent: var(--sage-medium);
+    --accent-foreground: var(--warm-white);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--warm-white);
+
+    --border: var(--warm-beige);
+    --input: var(--warm-beige);
+    --ring: var(--sage-medium);
+
+    --radius: 1rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--warm-white)), hsl(var(--bamboo-light)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--charcoal-deep)), hsl(var(--forest-deep)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--sage-medium) / 0.3), hsl(var(--bamboo-light) / 0.5));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--bamboo-light) / 0.1) 0%, hsl(var(--sage-medium) / 0.05) 100%);
+    --gradient-liquid: linear-gradient(45deg, hsl(var(--bamboo-light) / 0.15), hsl(var(--sage-medium) / 0.1), hsl(var(--warm-beige) / 0.08));
+    
+    /* Shadows & Glows */
+    --shadow-premium: 0 25px 50px -12px hsl(var(--charcoal-deep) / 0.15);
+    --shadow-glass: 0 8px 32px 0 hsl(var(--charcoal-deep) / 0.37);
+    --glow-product: 0 0 40px hsl(var(--sage-medium) / 0.4);
+    --glow-intense: 0 0 80px hsl(var(--sage-medium) / 0.6);
+    
+    /* Animations */
+    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-glow: all 0.8s ease-in-out;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode uses charcoal as base */
+    --background: var(--charcoal-deep);
+    --background-alt: var(--warm-white);
+    --foreground: var(--warm-white);
+    --foreground-alt: var(--charcoal-deep);
+
+    --card: var(--charcoal-deep);
+    --card-foreground: var(--warm-white);
+
+    --popover: var(--charcoal-deep);
+    --popover-foreground: var(--warm-white);
+
+    --primary: var(--bamboo-light);
+    --primary-foreground: var(--charcoal-deep);
+    --primary-glow: var(--sage-medium);
+
+    --secondary: var(--forest-deep);
+    --secondary-foreground: var(--bamboo-light);
+
+    --muted: var(--sage-medium);
+    --muted-foreground: var(--warm-beige);
+
+    --accent: var(--bamboo-light);
+    --accent-foreground: var(--charcoal-deep);
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: var(--warm-white);
+
+    --border: var(--forest-deep);
+    --input: var(--forest-deep);
+    --ring: var(--bamboo-light);
+    
+    /* Enhanced glows in dark mode */
+    --glow-product: 0 0 60px hsl(var(--bamboo-light) / 0.5);
+    --glow-intense: 0 0 120px hsl(var(--bamboo-light) / 0.7);
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-montserrat;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Typography System */
+  .heading-hero {
+    @apply font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight;
+  }
+  
+  .heading-main {
+    @apply font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl font-normal tracking-tight;
+  }
+  
+  .heading-section {
+    @apply font-montserrat font-bold text-lg md:text-xl lg:text-2xl tracking-wide;
+  }
+  
+  .text-body {
+    @apply font-montserrat font-normal text-base md:text-lg;
+  }
+  
+  .text-small {
+    @apply font-montserrat font-light text-sm md:text-base;
+  }
+  
+  /* Product Glow Effect */
+  .product-glow {
+    filter: drop-shadow(var(--glow-product));
+    transition: var(--transition-glow);
+  }
+  
+  .product-glow:hover {
+    filter: drop-shadow(var(--glow-intense));
+  }
+  
+  /* Parallax Container */
+  .parallax-container {
+    perspective: 1000px;
+    overflow: hidden;
+  }
+  
+  /* Glass Effect */
+  .glass {
+    backdrop-filter: blur(10px);
+    background: hsl(var(--warm-white) / 0.1);
+    border: 1px solid hsl(var(--warm-beige) / 0.2);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--forest-deep)), hsl(var(--sage-medium)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Liquid Glass Effects */
+  .glass-morphism {
+    background: rgba(230, 240, 223, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(230, 240, 223, 0.1);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .liquid-glass-container {
+    background: linear-gradient(145deg, 
+      rgba(230, 240, 223, 0.08) 0%,
+      rgba(106, 120, 106, 0.04) 35%,
+      rgba(45, 65, 45, 0.06) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(230, 240, 223, 0.12);
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(230, 240, 223, 0.15),
+      inset 0 -1px 0 rgba(45, 65, 45, 0.1);
+  }
+
+  .glass-shimmer {
+    background: linear-gradient(45deg, 
+      transparent 30%, 
+      rgba(230, 240, 223, 0.1) 50%, 
+      transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .glass-orb {
+    background: radial-gradient(circle, 
+      rgba(230, 240, 223, 0.2) 0%, 
+      rgba(106, 120, 106, 0.1) 70%, 
+      transparent 100%);
+    border: 1px solid rgba(230, 240, 223, 0.15);
+    box-shadow: 
+      0 4px 16px rgba(230, 240, 223, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.5; transform: translateX(-100%); }
+    50% { opacity: 1; transform: translateX(100%); }
+  }
+}
